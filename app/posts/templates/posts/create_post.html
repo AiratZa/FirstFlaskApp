@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    
+    Create New Post
+
+{% endblock %}
+
+
+
+{% block content_title %}
+    
+    New Post  
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="col-md-6">
+        <form action="{{ url_for ('posts.create_post') }}" method="POST">
+            {% for field in form %}
+
+                <div class="form-group">
+                    {{ field.label(class='exampleFormControlTextarea1') }}
+                    {{ field(class='form-control') }}
+
+                </div>
+
+            {% endfor %}
+            <button type="submit" class="btn btn-success">Создать</button>
+            <button type="button" class="btn btn-danger">Отменить</button>
+        </form>
+        
+    </div>
+{% endblock %}
